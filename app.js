@@ -27,8 +27,8 @@ app.use(express.urlencoded({ extended: false }))
 app.use(session({
     secret: "my secret key",
     saveUninitialized: true,
-    resave: false
-
+    resave: false,
+    maxAge: 1000
 }));
 
 // Passport Middleware

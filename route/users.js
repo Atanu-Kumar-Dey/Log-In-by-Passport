@@ -81,11 +81,28 @@ router.post('/register', (req, res) => {
 
 // Log in handle
 router.post('/login', (req, res, next) => {
-    passport.authenticate('local', {
-        successRedirect: '/dashboard',
-        failureRedirect: '/users/register',
-        failureFlash: true
+    passport.authenticate('local', (err) => {
+        if (err) {
+            console.log('Eroor occured');
+
+        }
+        req.logIn('local', (user, err) => {
+            if (err) {
+                console.log('Error occured in login method')
+            } else if (!user) {
+                console.log('Not User Found');
+            } else {
+                res.redirect('/dashboard')
+            }
+        })
     })(req, res, next);
 });
+
+router.get('/logout', (req, res) => {
+    req.logOut((err => {
+        console.log(err)
+    }));
+    res.redirect('/')
+})
 
 module.exports = router
