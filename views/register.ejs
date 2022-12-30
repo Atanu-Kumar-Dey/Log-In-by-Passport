@@ -1,0 +1,55 @@
+<div class="container d-flex justify-content-center ">
+    <form class="form-horizontal mt-2 px-5 py-2 rounded shadow" action='/users/register' method="POST">
+        <fieldset>
+            <div id="legend">
+                <legend class="fs-1 mt-3 text-center"><i class="fas fa-user-plus"></i> Register</legend>
+            </div>
+
+            <div class="control-group">
+                <!-- Name -->
+                <label class="control-label" for="name">Name</label>
+                <div class="controls">
+                    <input type="name" id="name" name="name" placeholder="Enter your name" value="<%= typeof name != 'undefined' ? name : '' %>" class="input-xlarge">
+                    <p class="help-block">Name can contain any letters </p>
+                </div>
+            </div>
+
+            <div class="control-group">
+                <!-- E-mail -->
+                <label class="control-label" for="email">E-mail</label>
+                <div class="controls">
+                    <input type="email" id="email" name="email" placeholder="Enter your email" value="<%= typeof email != 'undefined' ? email : '' %>" class="input-xlarge">
+                    <p class="help-block">E-mail should contain @ </p>
+                </div>
+            </div>
+
+            <div class="control-group">
+                <!-- Password-->
+                <label class="control-label" for="password">Password</label>
+                <div class="controls">
+                    <input type="password" id="password" name="password" placeholder="Create password" value="<%= typeof password != 'undefined' ? password : '' %>" class="input-xlarge">
+                    <p class="help-block">Password should be at least 4 characters</p>
+                </div>
+            </div>
+
+            <div class="control-group">
+                <!-- Password -->
+                <label class="control-label" for="password2">Password (Confirm)</label>
+                <div class="controls">
+                    <input type="password" id="password2" name="password2" placeholder="Confirm password" value="<%= typeof password2 != 'undefined' ? password2 : '' %>" class="input-xlarge">
+                    <p class="help-block">Use the same password as the above</p>
+                </div>
+            </div>
+
+            <div class="control-group">
+                <!-- Button -->
+                <div class="controls">
+                    <button type="submit" class="btn btn-primary">Register</button>
+                    <p class="mt-2">Already have account?
+                        <a href="/users/login" class="text-decoration-none"> <span class="text-primary"> Log In</span></a>
+                    </p>
+                </div>
+            </div>
+        </fieldset>
+    </form>
+</div>
